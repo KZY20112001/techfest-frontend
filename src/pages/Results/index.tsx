@@ -1,17 +1,21 @@
-import { Container } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
 import Storyboard from "../../Components/Storyboard";
+import Images from "../../Components/Images";
 
 const Results = () => {
   return (
-    <Container
-      size="5xl"
+    <Box
       width="100vw"
       height="100vh"
       overflowY="scroll"
       id="container"
+      display="flex"
+      flexDir="column"
+      gap="2rem"
     >
       <Storyboard />
-    </Container>
+      <Images />
+    </Box>
   );
 };
 

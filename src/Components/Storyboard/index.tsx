@@ -37,6 +37,7 @@ const Storyboard = () => {
             textColor="gray.800"
             padding="0.75rem 0.5rem"
             borderRadius="xl"
+            key={story.content + story.scene}
           >
             <Heading
               borderRadius="lg"

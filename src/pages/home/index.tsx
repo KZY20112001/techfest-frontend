@@ -16,7 +16,14 @@ const Home = () => {
     }
   };
   return (
-    <>
+    <Box
+      height="100vh"
+      width="100vw"
+      display="flex"
+      flexDir="column"
+      justifyContent="center"
+      alignItems="center"
+    >
       <Box marginTop="20">
         <Text fontWeight="bold" color="orange.100" fontSize="6xl" noOfLines={2}>
           Use Our Latest LLM Models to Generate Scenes
@@ -27,7 +34,15 @@ const Home = () => {
           Your ideal script could be one prompt away...
         </Text>
       </Box>
-      <Box marginTop="20" display="flex" flexDir="column" width="lg" gap={5}>
+      <Box
+        marginTop="20"
+        display="flex"
+        flexDir="column"
+        width="lg"
+        gap={5}
+        justifyContent="center"
+        alignItems="center"
+      >
         <Input
           rounded="lg"
           onChange={(e) => setPrompt(e.target.value)}
@@ -57,7 +72,7 @@ const Home = () => {
           Input is Empty!!!
         </Text>
       )}
-    </>
+    </Box>
   );
 };
 
