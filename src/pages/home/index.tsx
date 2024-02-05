@@ -1,15 +1,19 @@
 import { Box, Button, Input, Text } from "@chakra-ui/react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import useStore from "../../Store/useStore";
 
 const Home = () => {
   const navigate = useNavigate();
-  const [prompt, setPrompt] = useState("");
+  const { setPrompt } = useStore();
+  const [input, setInput] = useState("");
   const [showError, setShowError] = useState(false);
-  console.log(prompt);
+  console.log(input);
 
   const handleClick = () => {
-    if (prompt !== "") {
+    if (input !== "") {
+      if (input.toLowerCase().includes("cpf")) setPrompt("cpf");
+      else setPrompt("healthier_sg");
       navigate("/results");
     } else {
       setShowError(true);
@@ -31,7 +35,7 @@ const Home = () => {
       </Box>
       <Box marginTop="20">
         <Text fontWeight="bold" color="orange.200" fontSize="5xl" noOfLines={2}>
-          Your ideal script could be one prompt away...
+          Your ideal script could be one input away...
         </Text>
       </Box>
       <Box
@@ -45,7 +49,7 @@ const Home = () => {
       >
         <Input
           rounded="lg"
-          onChange={(e) => setPrompt(e.target.value)}
+          onChange={(e) => setInput(e.target.value)}
           textColor="whitesmoke"
         />
         <Button
@@ -60,7 +64,7 @@ const Home = () => {
         </Button>
       </Box>
 
-      {showError && prompt === "" && (
+      {showError && input === "" && (
         <Text
           color="red.600"
           fontSize="xl"

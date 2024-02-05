@@ -1,7 +1,10 @@
 import { Box, Heading } from "@chakra-ui/react";
-import { video } from "../../Assets/Videos";
+import { VIDEO } from "../../Data/Video";
 import ReactPlayer from "react-player";
+import useStore from "../../Store/useStore";
 const Video = () => {
+  const { prompt } = useStore();
+  const video = VIDEO[prompt as keyof typeof VIDEO];
   return (
     <Box
       width="100%"
@@ -9,7 +12,7 @@ const Video = () => {
       display="flex"
       flexDirection="column"
       alignItems="center"
-      justifyContent="space-around"
+      scrollSnapAlign="center"
     >
       <Heading
         textColor="gray.700"
@@ -19,7 +22,7 @@ const Video = () => {
         height="10vh"
         paddingTop="2vh"
       >
-        Video Player
+        Sample Video
       </Heading>
       <Box height="90vh" paddingTop="2vh">
         <ReactPlayer

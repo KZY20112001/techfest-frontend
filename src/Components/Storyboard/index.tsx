@@ -1,7 +1,10 @@
 import { Box, Container, Divider, Heading, Text } from "@chakra-ui/react";
-import { STORYBOARD_DATA } from "../../Data/Storyboard";
+import { STORYBOARD } from "../../Data/Storyboard";
+import useStore from "../../Store/useStore";
 
 const Storyboard = () => {
+  const { prompt } = useStore();
+  const data = STORYBOARD[prompt as keyof typeof STORYBOARD];
   return (
     <Container
       width="100%"
@@ -9,6 +12,7 @@ const Storyboard = () => {
       padding="0.5rem 0"
       display="flex"
       flexDirection="column"
+      scrollSnapAlign="center"
     >
       <Heading
         textColor="gray.700"
@@ -27,7 +31,7 @@ const Storyboard = () => {
         display="flex"
         flexDirection="column"
       >
-        {STORYBOARD_DATA.map((story, index) => (
+        {data.map((story, index) => (
           <Box
             display="flex"
             flexDirection="column"

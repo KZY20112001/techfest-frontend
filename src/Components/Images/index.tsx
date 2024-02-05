@@ -1,10 +1,13 @@
 import { Box, Heading, Image, Text } from "@chakra-ui/react";
 import { useState } from "react";
 import { FaLongArrowAltLeft, FaLongArrowAltRight } from "react-icons/fa";
-import { IMAGES_DATA } from "../../Data/Images";
-const endIndex = IMAGES_DATA.length - 1;
+import { IMAGES } from "../../Data/Images";
+import useStore from "../../Store/useStore";
 const Images = () => {
   const [curIndex, setCurIndex] = useState(0);
+  const { prompt } = useStore();
+  const data = IMAGES[prompt as keyof typeof IMAGES];
+  const endIndex = data.length - 1;
   const handleIncrease = () => {
     if (curIndex < endIndex) setCurIndex(curIndex + 1);
     else setCurIndex(0);
@@ -20,6 +23,7 @@ const Images = () => {
       display="flex"
       flexDirection="column"
       alignItems="center"
+      scrollSnapAlign="center"
     >
       <Heading
         textColor="gray.700"
@@ -29,10 +33,10 @@ const Images = () => {
         height="10vh"
         paddingTop="2vh"
       >
-        Images
+        Generated Images
       </Heading>
 
-      {IMAGES_DATA.map((image, index) => {
+      {data.map((image, index) => {
         if (index === curIndex)
           return (
             <Box display="flex" alignItems="center" height="90vh" gap="2rem">
