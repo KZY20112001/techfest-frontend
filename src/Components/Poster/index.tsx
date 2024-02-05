@@ -1,4 +1,4 @@
-import { Box, Heading, Image } from "@chakra-ui/react";
+import { Box, Button, Heading, Image } from "@chakra-ui/react";
 import { POSTER } from "../../Data/Poster";
 import useStore from "../../Store/useStore";
 const Poster = () => {
@@ -31,6 +31,15 @@ const Poster = () => {
       >
         <Image src={poster} alt="poster" width="600px" height="600px" />{" "}
       </Box>
+      <Button
+        width="10vw"
+        alignSelf="center"
+        marginBottom="1rem"
+        backgroundColor="palegreen"
+        onClick={() => console.log("Downloading Soon")}
+      >
+        Download Assets
+      </Button>
     </Box>
   );
 };
