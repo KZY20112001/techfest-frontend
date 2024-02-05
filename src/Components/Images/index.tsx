@@ -26,7 +26,8 @@ const Images = () => {
         cursor="pointer"
         fontWeight="semibold"
         fontSize="1.8rem"
-        paddingTop="2rem"
+        height="10vh"
+        paddingTop="2vh"
       >
         Images
       </Heading>

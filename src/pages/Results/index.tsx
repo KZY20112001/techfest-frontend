@@ -1,6 +1,7 @@
 import { Box } from "@chakra-ui/react";
 import Storyboard from "../../Components/Storyboard";
 import Images from "../../Components/Images";
+import Video from "../../Components/Video";
 
 const Results = () => {
   return (
@@ -11,10 +12,10 @@ const Results = () => {
       id="container"
       display="flex"
       flexDir="column"
-      gap="2rem"
     >
       <Storyboard />
       <Images />
+      <Video />
     </Box>
   );
 };
